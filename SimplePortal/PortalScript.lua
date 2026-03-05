@@ -41,7 +41,7 @@ local function teleportPlayer(character, destination)
 	local rootPart = character:FindFirstChild("HumanoidRootPart")
 	if rootPart then
 		-- 목적지 포탈 위 1.5스터드 위치로 이동 (포탈 안에 끼지 않도록)
-		rootPart.CFrame = destination.CFrame + Vector3.new(0, 3, 0)
+		rootPart.CFrame = destination.CFrame * CFrame.new(0, 3, 0)
 	end
 end
 
