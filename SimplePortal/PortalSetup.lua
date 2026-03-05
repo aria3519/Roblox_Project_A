@@ -4,7 +4,7 @@
 
 local workspace = game:GetService("Workspace")
 
-local function createPortal(name, position, color)
+local function createPortal(name, position, color, rotationY)
 	-- 기존 파트가 있으면 재사용
 	local existing = workspace:FindFirstChild(name)
 	if existing then
@@ -14,7 +14,7 @@ local function createPortal(name, position, color)
 	local part = Instance.new("Part")
 	part.Name = name
 	part.Size = Vector3.new(4, 8, 1)   -- 가로 4, 높이 8, 두께 1
-	part.Position = position
+	part.CFrame = CFrame.new(position) * CFrame.Angles(0, math.rad(rotationY or 0), 0)
 	part.BrickColor = BrickColor.new(color)
 	part.Material = Enum.Material.Neon
 	part.Transparency = 0.4
@@ -26,8 +26,8 @@ local function createPortal(name, position, color)
 	return part
 end
 
--- 포탈 A : 기본 위치 (0, 5, 0)
-createPortal("PortalA", Vector3.new(0, 5, 0),   "Bright blue")
+-- 포탈 A : 기본 위치 (0, 5, 0), Y축 180도 회전
+createPortal("PortalA", Vector3.new(0, 5, 0),   "Bright blue", 180)
 
 -- 포탈 B : 기본 위치 (0, 5, 50) — 50스터드 앞
 createPortal("PortalB", Vector3.new(0, 5, 50),  "Bright orange")
