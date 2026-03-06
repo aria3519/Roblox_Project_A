@@ -58,6 +58,16 @@ MonsterStats.Types = {
 		Color          = "Reddish brown",
 	},
 
+	Dragon = {
+		Health         = 500,
+		Damage         = 50,
+		Speed          = 12,
+		AttackRange    = 8,
+		AttackCooldown = 2.5,
+		DetectRange    = 50,
+		Color          = "Bright red",
+	},
+
 }
 
 -- 몬스터 타입 유효성 검사
